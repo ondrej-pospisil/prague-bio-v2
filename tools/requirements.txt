@@ -1,4 +1,0 @@
-brotli
-fonttools
-jinja2
-pillow
