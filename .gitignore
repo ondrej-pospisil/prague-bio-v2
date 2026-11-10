@@ -4,3 +4,4 @@ __pycache__/
 tools/bin/
 .env
 *.log
+public/
