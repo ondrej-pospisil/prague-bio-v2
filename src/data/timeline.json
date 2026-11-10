@@ -1,0 +1,83 @@
+[
+ {
+  "year": "1898–1911",
+  "country": "POLAND",
+  "flag": "🇵🇱",
+  "name": "Marie Skłodowska-Curie",
+  "subtitle": "Radioactivity in medicine",
+  "prize": "Nobel Prize (1903, 1911)",
+  "image": "assets/img/biotech/timeline/2d4c1a-ie_Curie__1867_-_1934___Polish_chemist_Wellcome_M0002559.jpg"
+ },
+ {
+  "year": "1907",
+  "country": "CZECHIA",
+  "flag": "🇨🇿",
+  "name": "Jan Janský",
+  "subtitle": "Blood group classification",
+  "image": "assets/img/biotech/timeline/449070-Blood_Types.jpg"
+ },
+ {
+  "year": "1910–1920",
+  "country": "POLAND",
+  "flag": "🇵🇱",
+  "name": "Ludwik Hirszfeld",
+  "subtitle": "Immunohematology & blood group genetics",
+  "image": "assets/img/biotech/timeline/e99ecc-Nucleated_red_cells.jpg"
+ },
+ {
+  "year": "1922",
+  "country": "CZECHIA",
+  "flag": "🇨🇿",
+  "name": "Jaroslav Heyrovský",
+  "subtitle": "Polarography",
+  "prize": "Nobel Prize in Chemistry (1959)",
+  "image": "assets/img/biotech/timeline/40c14e-ografie_-_P__b_h_kapky_foto_Pavl_na_J_chimov___AV__R__1_.jpg"
+ },
+ {
+  "year": "1937",
+  "country": "HUNGARY",
+  "flag": "🇭🇺",
+  "name": "Albert Szent-Györgyi",
+  "subtitle": "Discovery of Vitamin C",
+  "prize": "Nobel Prize in Physiology or Medicine (1937)",
+  "image": "assets/img/biotech/timeline/212151-yi_Albert_es_a_c_vitamin_keplete_1937_okt_31_Pesti_Naplo.jpg"
+ },
+ {
+  "year": "1958–1961",
+  "country": "POLAND",
+  "flag": "🇵🇱",
+  "name": "Hilary Koprowski",
+  "subtitle": "Oral polio vaccine",
+  "image": "assets/img/biotech/timeline/f64a1f-Wellcome_polio_vaccine_Wellcome_L0033971.jpg"
+ },
+ {
+  "year": "1961",
+  "country": "CZECHIA",
+  "flag": "🇨🇿",
+  "name": "Otto Wichterle",
+  "subtitle": "Hydrogels & soft contact lenses"
+ },
+ {
+  "year": "1990s",
+  "country": "CZECHIA",
+  "flag": "🇨🇿",
+  "name": "Antonín Holý",
+  "subtitle": "Antiviral nucleotide analogues",
+  "image": "assets/img/biotech/timeline/17a260-EP_HIV_Prevention_Prescription_Pill_Bottle__48610088067_.jpg"
+ },
+ {
+  "year": "2020",
+  "country": "CZECHIA",
+  "flag": "🇨🇿",
+  "name": "Tomáš Cihlář",
+  "subtitle": "Remdesivir and antiviral therapy contribution"
+ },
+ {
+  "year": "2023",
+  "country": "HUNGARY",
+  "flag": "🇭🇺",
+  "name": "Katalin Karikó",
+  "subtitle": "mRNA technology",
+  "prize": "Nobel Prize in Physiology or Medicine (2023)"
+ }
+]

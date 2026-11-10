@@ -1,0 +1,19 @@
+{#- Hlavní hlavička: plná šířka, obsah zarovnaný s .wrap -#}
+<header class="site-header" data-header>
+  <div class="wrap header-bar">
+    <a class="brand" href="{{ u('index.html') }}" aria-label="Prague.bio – home">
+      <img class="h-8 w-auto md:h-9" src="{{ a('svg/logo-prague-bio.svg') }}" width="179" height="40" alt="Prague.bio">
+    </a>
+    <nav class="ml-auto hidden xl:block" aria-label="Main">
+      <ul class="flex items-center gap-1">
+        {% for key, href, label in MAIN_NAV %}
+        <li><a class="nav-link" href="{{ u(href) }}"{% if key == nav %} aria-current="page"{% endif %}>{{ label }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <div class="ml-auto flex items-center gap-3 xl:ml-2">
+      <a class="btn btn-primary btn-sm hidden sm:inline-flex" href="{{ u('membership.html') }}"{% if nav == 'membership' %} aria-current="page"{% endif %}><span>Membership</span></a>
+      <button class="menu-btn xl:hidden" type="button" aria-expanded="false" aria-controls="menu" data-menu-open aria-label="Open menu">{{ icon('list') }}</button>
+    </div>
+  </div>
+</header>

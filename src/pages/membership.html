@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% import "_ui.html" as ui with context %}
+{% set title = 'Membership – Prague.bio' %}
+{% set desc = 'Prague.bio gathers and connects key players in the life sciences sector in the Czech Republic and the region of Central Europe.' %}
+{% set nav = 'membership' %}
+{% set GRID = ['arxada','bristol-myers-squibb','betthera','casinvent','diana-biotechnologies','dnai','dubanskaco','enantis','fgu','focus','ii','ibt','img','iocb-tech-h','jic-1','kapaji','keymove','lam-x'] %}
+
+{% block main %}
+<section class="relative pt-[calc(var(--header-h)+2rem)] md:pt-[calc(var(--header-h)+3rem)]" data-hero aria-labelledby="hero-title">
+  {{ ui.molecule(1, 'molecule-hero') }}
+  <div class="wrap grid items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-14">
+    <div class="flex flex-col gap-6">
+      <h1 class="t-display" id="hero-title" data-split>Join the Czech<br> <span class="text-grad">biotech community</span></h1>
+      <p class="t-lead" data-reveal>Prague.bio gathers and connects key players in the life sciences sector in the Czech Republic and the region of Central Europe. Our members range from large pharmaceutical companies and startups to R&amp;D institutions and public bodies.</p>
+      <div data-reveal>{{ ui.btn('Become a member', '#apply', 'primary', 'arrow-down', size='lg') }}</div>
+    </div>
+    <div class="shape-baked" data-reveal="fade">{{ pic('img/membership/grafika-3.png', 'Audience at a Prague.bio event', eager=True, sizes='(min-width: 1024px) 55vw, 100vw') }}</div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="members-title">
+  <div class="wrap">
+    <p class="eyebrow justify-center" id="members-title" data-reveal>Our members</p>
+    <ul class="mt-8 grid grid-cols-3 gap-2 sm:grid-cols-4 md:gap-3 lg:grid-cols-6" role="list" data-stagger>
+      {% for f in GRID %}<li data-reveal>{{ logo('img/logos/' ~ f ~ '.svg', logo_alt('logos/' ~ f), area=0.085) }}</li>{% endfor %}
+    </ul>
+    <div class="mt-10 flex justify-center" data-reveal>{{ ui.btn('View all members', 'members.html', 'secondary', 'arrow-right') }}</div>
+  </div>
+</section>
+
+<section class="pb-[var(--section-y)]" aria-labelledby="why-title">
+  <div class="wrap">
+    {% call ui.head('Why join Prague.Bio?', align='center', id='why-title') %}{% endcall %}
+    {% set benefits = [
+      ('users-three', 'Be part of a growing community of biotech leaders', 'We currently have over 40 members, ranging from large pharmaceutical companies and startups to R&D institutions and government bodies.'),
+      ('share-network', 'Expand your network', 'We encourage our members to connect and collaborate. Throughout the year, we organize events and meetings to foster meaningful relationships within the biotech community.'),
+      ('user-check', 'Find the right partners', 'Looking for matchmaking opportunities, investors, international partners? We can help you find the right connections.'),
+      ('megaphone-simple', 'Make your voice heard', 'The biotech sector in the Czech Republic has been somewhat fragmented, and we aim to unify its voice. This strengthens our position when engaging with government bodies and other key stakeholders.'),
+      ('shooting-star', 'Boost your visibility', 'Increase your presence in the biotech sector through our platform, events, and collaborations.'),
+      ('calendar-dots', 'Exclusive access to local & international events', 'Gain first-hand access to events organized by Prague.bio, as well as major international conferences where we offer opportunities for our members—such as exhibiting at our stand.'),
+    ] %}
+    <ul class="rail mt-10 md:mt-14 rail-md md:grid-cols-2 md:gap-4 lg:grid-cols-3" id="why" data-rail role="list">
+      {% for ic, t, txt in benefits %}
+      <li class="benefit-card group" data-reveal>
+        {{ ui.badge(ic) }}
+        <h3 class="t-h4">{{ t }}</h3>
+        <p class="t-small">{{ txt }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="rail-dots md:hidden" data-rail-dots="why"></div>
+  </div>
+</section>
+
+<section class="pb-[var(--section-y)]" id="apply" aria-labelledby="how-title">
+  <div class="wrap grid items-start gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
+    <div class="flex flex-col gap-8 lg:sticky lg:top-[calc(var(--header-h)+2rem)]">
+      {% call ui.head('How to become a member', id='how-title') %}{% endcall %}
+      {{ ui.steps([
+        ('Contact us', 'If you’re interested in joining Prague.bio, please reach out via the contact form below.'),
+        ('Submit a formal application', 'After the initial contact, we will send you a formal application form where you can provide all relevant details about your company or institution.'),
+        ('Approval by the Prague.bio Executive board', 'Once we receive your application, our Executive board will review and evaluate it for approval.'),
+        ('Membership fee', 'If your application is approved, you will be required to pay the membership fee according to our price list.'),
+        ('Welcome to Prague.bio!', 'Congratulations! You are now a member of the Prague.bio community. We look forward to collaborating with you!')]) }}
+    </div>
+    <div class="form-card" data-reveal>
+      {{ pic('img/membership/form-bg.jpg', '', cls='form-card-bg', sizes='(min-width: 1024px) 50vw, 100vw') }}
+      <div class="relative card card-glass card-pad">
+        <h2 class="t-h2">Apply for membership</h2>
+        <p class="t-small mt-3">This is a non-binding application. After initial contact, we will send you the formal membership application. Please note that all membership applications must be approved by the Prague.bio Executive board.</p>
+        <form class="mt-8 grid gap-4" data-form data-form-id="membership" novalidate action="#" method="post">
+          <div class="grid gap-4 sm:grid-cols-2">
+            {{ ui.field('name', 'Name and Surname', required=True, auto='name', error='Please enter your name.') }}
+            {{ ui.field('email', 'E-mail', 'email', required=True, auto='email', error='Please enter a valid e-mail.') }}
+            {{ ui.field('position', 'Job Position', auto='organization-title') }}
+            {{ ui.field('company', 'Company/Institution', required=True, auto='organization', error='Please enter your company or institution.') }}
+          </div>
+          {{ ui.field('message', 'Do you have additional questions?', textarea=True) }}
+          {{ ui.consent() }}
+          {{ ui.btn('Send', '', 'primary', 'paper-plane-tilt', size='lg', cls='btn-block', type='submit') }}
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pb-[var(--section-y)]" aria-labelledby="docs-title">
+  <div class="wrap">
+    <div class="card card-soft relative grid items-center gap-8 overflow-hidden p-6 md:grid-cols-[auto_1fr] md:p-10 lg:gap-14">
+      <img class="mx-auto w-32 md:w-40" src="{{ a('img/membership/Group-6.png') }}" width="228" height="291" alt="Prague.bio membership documents" loading="lazy" data-reveal>
+      <div class="flex flex-col gap-6">
+        <h2 class="t-h2" id="docs-title" data-split>Download our documents</h2>
+        <div class="grid gap-3 lg:grid-cols-2">
+          {{ ui.resource('https://prague.bio/wp-content/uploads/2025/07/Prague.bio_membership.pdf', 'Membership fees', 'PDF') }}
+          {{ ui.resource('https://prague.bio/wp-content/uploads/2025/07/Prague.bio-Stanovy-spolku_revize-2024.pdf', 'Deed of foundation', 'PDF') }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% import "_ui.html" as ui with context %}
+{#- „Where you can meet us?“ – sdílené pro homepage a novinky -#}
+<section class="section" aria-labelledby="events-title">
+  <div class="wrap">
+    <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      {% call ui.head('Where you can meet us?', id='events-title') %}{% endcall %}
+      <div class="flex items-center gap-3" data-reveal>
+        {% if OUT != 'news-events.html' %}{{ ui.btn('Explore news & events', 'news-events.html', 'secondary', 'arrow-right') }}{% endif %}
+      </div>
+    </div>
+    {% set events = [
+      ('https://informaconnect.com/bioeurope/', 'img/event-lyon.jpg', '5-7', 'Apr 2027', 'BIO Europe Spring', 'Lyon', True),
+      ('https://informaconnect.com/bioeurope/', 'img/event-cologne.jpg', '9 - 11', 'Nov 2026', 'BIO Europe', 'Cologne', True),
+      ('conference.html', 'img/event-prague.jpg', '23', 'Sep 2026', 'Prague.bio Conference 2026', 'Prague', False),
+    ] %}
+    <ul class="rail mt-10 md:mt-14 rail-md md:grid-cols-3 md:gap-5" id="events" data-rail role="list">
+      {% for href, img, day, month, name, place, ext in events %}
+      <li data-reveal style="--d:{{ loop.index0 * 80 }}ms">
+        <a class="event-card group" href="{{ u(href) }}"{% if ext %} target="_blank" rel="noopener"{% endif %}>
+          <span class="media-zoom absolute inset-0">{{ pic(img, '', sizes='(min-width: 768px) 33vw, 80vw') }}</span>
+          <span class="event-date glass"><span class="t-h3 font-bold leading-none t-num">{{ day }}</span><span class="text-xs font-bold uppercase tracking-[.12em]">{{ month }}</span></span>
+          <span class="event-body">
+            <span class="t-h4 font-bold text-white">{{ name }}</span>
+            <span class="flex items-center gap-1.5 text-sm text-white/80">{{ icon('map-pin') }}{{ place }}</span>
+          </span>
+          <span class="event-arrow">{{ icon('arrow-up-right' if ext else 'arrow-right') }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="rail-dots md:hidden" data-rail-dots="events"></div>
+  </div>
+</section>

@@ -1,0 +1,535 @@
+{
+ "rooms": {
+  "room1": "Main Stage",
+  "room2": "Workshop Room",
+  "room3": "Partnering Lounge"
+ },
+ "items": [
+  {
+   "kind": "session",
+   "start": "09:00",
+   "end": "09:20",
+   "rooms": [
+    "room1"
+   ],
+   "type": "keynote",
+   "badge": "Opening Remarks",
+   "title": "Welcome to the 4th edition of the Prague.bio Conference",
+   "desc": [
+    "Welcome to the 4th edition of the Prague.bio Conference."
+   ],
+   "speakers": [
+    {
+     "name": "Adam Vojtech",
+     "role": "Minister of Health of the Czech Republic"
+    },
+    {
+     "name": "Tomas Kuchta",
+     "role": "Director General · Ministry of Foreign Affairs"
+    },
+    {
+     "name": "Matyas Pelant",
+     "role": "Deputy Director General · Ministry of Industry and Trade"
+    },
+    {
+     "name": "Jan Konvalinka",
+     "role": "Director · IOCB"
+    },
+    {
+     "name": "Petra Kinzlova",
+     "role": "CEO · Prague.bio"
+    }
+   ]
+  },
+  {
+   "kind": "session",
+   "start": "09:20",
+   "end": "09:40",
+   "rooms": [
+    "room1"
+   ],
+   "type": "keynote",
+   "badge": "Special Guest",
+   "title": "Claire Skentelbery, EuropaBio",
+   "desc": [
+    "Can Europe close the biotech competitiveness gap? Claire Skentelbery discusses the ambitions behind the EU Biotech Act and the policy changes needed to help European biotech companies start, scale, and stay in Europe."
+   ],
+   "speakers": [
+    {
+     "name": "Claire Skentelbery",
+     "role": "Director General · EuropaBio"
+    }
+   ]
+  },
+  {
+   "kind": "session",
+   "start": "09:30",
+   "end": "17:50",
+   "rooms": [
+    "room3"
+   ],
+   "type": "partnering",
+   "badge": "Partnering",
+   "title": "Partnering Meetings",
+   "desc": [
+    "Pre-arranged one-on-one partnering meetings run continuously throughout the whole day, including all coffee breaks and the lunch break."
+   ],
+   "speakers": []
+  },
+  {
+   "kind": "session",
+   "start": "09:40",
+   "end": "10:20",
+   "rooms": [
+    "room1"
+   ],
+   "type": "panel",
+   "badge": "Panel Discussion",
+   "title": "Global biotech trends",
+   "desc": [
+    "Industry leaders discuss the shifting centres of gravity in global biotech, from policy and funding uncertainty in the United States to the rapid rise of China and Asia as innovation powerhouses, and what these developments mean for Europe's future role in the sector."
+   ],
+   "speakers": [
+    {
+     "name": "Barbara Domayne-Hayman",
+     "role": "Entrepreneur-in-Residence · Francis Crick Institute"
+    },
+    {
+     "name": "David Flores",
+     "role": "Co-founder, President & CEO · BioCentury"
+    },
+    {
+     "name": "Monica Rosoff",
+     "role": "CEO · LBBAL Alianza"
+    },
+    {
+     "name": "Ludek Sojka",
+     "role": "CEO · SCTbio"
+    },
+    {
+     "name": "Moderator: David Simek",
+     "role": "Partner · Dentons"
+    }
+   ]
+  },
+  {
+   "kind": "break",
+   "start": "10:20",
+   "end": "10:50",
+   "icon": "coffee",
+   "title": "Coffee Break",
+   "meta": "30 min",
+   "rooms": [
+    "room1",
+    "room2"
+   ]
+  },
+  {
+   "kind": "session",
+   "start": "10:50",
+   "end": "11:20",
+   "rooms": [
+    "room1"
+   ],
+   "type": "keynote",
+   "badge": "Keynote",
+   "title": "Chris Bladen, Zymedyne Therapeutics",
+   "desc": [
+    "From bench to biotech: Chris Bladen discusses the realities of turning academic research into a venture-backed biopharma company, sharing lessons from the scientific, regulatory, and commercial challenges that shape the path from discovery to impact."
+   ],
+   "speakers": [
+    {
+     "name": "Chris Bladen",
+     "role": "Zymedyne Therapeutics"
+    }
+   ]
+  },
+  {
+   "kind": "session",
+   "start": "11:20",
+   "end": "12:25",
+   "rooms": [
+    "room1"
+   ],
+   "type": "pitch",
+   "badge": "Pitch Session 1",
+   "title": "Pitch Session 1",
+   "desc": [
+    "First batch of teams competing for the main prizes:",
+    "Adalid Sciences - PEG-Free, Modular LNP Platform for Targeted Genetic Medicine",
+    "CREATe Therapeutics - CREATe - Drug-controlled gene therapy platform enabling precise, reversible neuromodulation.",
+    "Technische Universität Dresden - A Selective CAR-NK Platform for Scalable Immune Reset in Autoimmune Diseases",
+    "Enantis Cosmetics - Engineering Longevity: Stable Polypeptides as Next-Generation Cosmetic Actives",
+    "Institute of Chemical Processes Fundamentals CAS - First-in-Class Selective Galectin-1 Inhibitors for Triple-Negative Breast Cancer",
+    "IOCB Prague - SQM Scoring: A Production-Ready Quantum Mechanical Engine for Drug Discovery"
+   ],
+   "speakers": []
+  },
+  {
+   "kind": "session",
+   "start": "11:25",
+   "end": "12:25",
+   "rooms": [
+    "room2"
+   ],
+   "type": "workshop",
+   "badge": "Workshop",
+   "title": "Get DD-Ready: How to Survive Your First Due Diligence and Secure the Deal – Workshop by KeyMove and Kristyna Mikulas Advokati",
+   "desc": [
+    "For most biotech founders, the first investor Due Diligence is where a promising company is either validated or quietly derailed. This 60-minute interactive workshop demystifies the DD process (at least the legal part): what investors examine, why it matters, and how the findings feed directly into your valuation and the transaction documents. Using a sample (fictional) DD report on a biotech startup, we walk through the most relevant areas step by step, so you can see how legal risk becomes a real commercial consequence. You will leave with a practical understanding of how to prepare your company — and a one-page checklist to apply to your own business."
+   ],
+   "speakers": [
+    {
+     "name": "Adam Prerovsky",
+     "role": "Partner · KeyMove"
+    },
+    {
+     "name": "Diana Urbaskova",
+     "role": "Lawyer · Kristyna Mikulas Advokati"
+    }
+   ]
+  },
+  {
+   "kind": "break",
+   "start": "12:25",
+   "end": "13:20",
+   "icon": "fork-knife",
+   "title": "Lunch",
+   "meta": "60 min",
+   "rooms": [
+    "room1",
+    "room2"
+   ]
+  },
+  {
+   "kind": "session",
+   "start": "13:20",
+   "end": "13:40",
+   "rooms": [
+    "room1"
+   ],
+   "type": "sponsor",
+   "badge": "Sponsor Session",
+   "title": "From Routine Chest X-rays to Lung Cancer Diagnosis: Scaling an AI-Supported Multinational Programme",
+   "desc": [
+    "Routine chest X-rays are frequently performed for reasons unrelated to cancer, yet they may reveal previously unsuspected pulmonary malignancies. This presentation will share real-world results from a Carebot and Bristol Myers Squibb programme that combines AI analysis with structured clinical follow-up in routine hospital workflows. The programme expanded from selected hospitals in Czech Republic to 9 countries across Europe and Middle East. More than 380,000 chest X-rays have been analysed and nearly 150 previously undiagnosed malignancies identified. The session will focus on clinical outcomes, implementation across different healthcare systems, follow-up governance and the partnership model required to scale the programme into new regions."
+   ],
+   "speakers": [
+    {
+     "name": "Marek Stastny",
+     "role": "Senior Medical Advisor · Bristol Myers Squibb"
+    },
+    {
+     "name": "Daniel Kvak",
+     "role": "CTO · Carebot"
+    }
+   ]
+  },
+  {
+   "kind": "session",
+   "start": "13:20",
+   "end": "13:50",
+   "rooms": [
+    "room2"
+   ],
+   "type": "workshop",
+   "badge": "Workshop",
+   "title": "Enabling the Next Generation of CAR-T Therapies: The Critical Role of Plasmid DNA and mRNA Manufacturing – Workshop by ProBio",
+   "desc": [
+    "As CAR-T technologies continue to evolve, the industry is moving beyond traditional approaches toward faster, safer, and more scalable manufacturing strategies. High-quality plasmid DNA and mRNA have become essential building blocks for gene editing, vector production, and emerging non-viral CAR-T platforms. Drawing on ProBio's experience in plasmid DNA, mRNA, viral vector, and GMP manufacturing, this session will highlight how optimized starting materials can accelerate development timelines and support the successful translation of innovative CAR-T therapies from concept to clinic."
+   ],
+   "speakers": [
+    {
+     "name": "Sami Ullah",
+     "role": "Business Development Manager · ProBio Technology"
+    }
+   ]
+  },
+  {
+   "kind": "session",
+   "start": "13:40",
+   "end": "14:00",
+   "rooms": [
+    "room1"
+   ],
+   "type": "keynote",
+   "badge": "Special Guest",
+   "title": "Miruna-Cristina Gala, EIF",
+   "desc": [
+    "Insights into the EIF's role in strengthening Europe's innovation ecosystem, supporting venture capital, and improving access to financing for high-growth life science companies."
+   ],
+   "speakers": [
+    {
+     "name": "Miruna-Cristina Gala",
+     "role": "European Investment Fund (EIF)"
+    }
+   ]
+  },
+  {
+   "kind": "session",
+   "start": "14:00",
+   "end": "14:40",
+   "rooms": [
+    "room1"
+   ],
+   "type": "panel",
+   "badge": "Panel Discussion",
+   "title": "Investor Panel Discussion",
+   "desc": [
+    "Leading investors share their perspectives on the current funding environment, investment priorities, and what biotech founders need to demonstrate to attract capital in today's market."
+   ],
+   "speakers": [
+    {
+     "name": "Anela Vukoja",
+     "role": "Partner · i&i Biotech Fund"
+    },
+    {
+     "name": "Sara Kangaspeska",
+     "role": "Investment Director · Innovestor"
+    },
+    {
+     "name": "Iwona Cymerman",
+     "role": "General Partner · AGX"
+    },
+    {
+     "name": "Lukasz Mankowski",
+     "role": "General Partner · Aegis Capital"
+    },
+    {
+     "name": "Moderator: Kamila Seberova",
+     "role": "Counsel · Wolf Theiss"
+    }
+   ]
+  },
+  {
+   "kind": "session",
+   "start": "14:00",
+   "end": "14:30",
+   "rooms": [
+    "room2"
+   ],
+   "type": "workshop",
+   "badge": "Workshop",
+   "title": "Turning Raw Lab Outputs into Actual Insights – Workshop by CDD Vault",
+   "desc": [
+    "As laboratories scale through automation, the primary bottleneck often shifts from physical throughput to data integration. Fragmented tools create \"data silos\" that require manual intervention and hinder real-time decision-making. This talk explores how a unified informatics foundation bridges the gap between automated hardware and the digital record. By integrating core functions—such as entity registration, inventory management, and assay capture—platforms like CDD Vault provide a scalable \"single source of truth.\" We will discuss how leveraging APIs and FAIR principles ensures that automated data remains contextualized and reproducible. Attendees will learn how a connected digital ecosystem eliminates manual workflows and transforms raw automated output into standardized, research-ready insights."
+   ],
+   "speakers": [
+    {
+     "name": "Nicola Vettore",
+     "role": "Customer Engagement Scientist · Collaborative Drug Discovery"
+    }
+   ]
+  },
+  {
+   "kind": "session",
+   "start": "14:40",
+   "end": "15:45",
+   "rooms": [
+    "room1"
+   ],
+   "type": "pitch",
+   "badge": "Pitch Session 2",
+   "title": "Pitch Session 2",
+   "desc": [
+    "Second batch of teams competing for the main prizes.",
+    "Onconick - First-in-class anti-FGFR1 Antibody-Drug Conjugate (ADC) for FGFR1-positive solid tumors",
+    "Panosome GmbH - VAST: A Next-Generation Trypanosome-Based Antibody Discovery Platform and High-Affinity MUC1 radiotheranostic Oncology Asset",
+    "PeptAid - I49 - a synthetic peptide acting as an immunomodulator for brain tumor therapy",
+    "PharmTheon - MenoFitX - Post-Menopausal Obesity Treatment for Healthy Aging",
+    "QurieGen - AI virtual cell model powered by a lab-in-the-loop platform to accelerate and derisk drug discovery",
+    "SophoMer - SophoMer™ Platform: Animal-Free Synthetic Polymers for Diagnostics and Biotechnology"
+   ],
+   "speakers": []
+  },
+  {
+   "kind": "session",
+   "start": "14:40",
+   "end": "15:25",
+   "rooms": [
+    "room2"
+   ],
+   "type": "workshop",
+   "badge": "Workshop",
+   "title": "Taiwan Biotech Excellence: From Discovery to Impact",
+   "desc": [
+    "Discover Taiwan's dynamic biotechnology ecosystem through presentations from Ever Supreme Bio Technology (regenerative medicine and cell therapies), ACRO Biomedical (regenerative biomaterials and medical devices), and National Chung Hsing University (academic innovation and biotech entrepreneurship). The workshop will showcase cutting-edge technologies and highlight opportunities for international collaboration in the life sciences sector."
+   ],
+   "speakers": [
+    {
+     "name": "Sammi Hsu",
+     "role": "Corporate Spokesperson · Ever Supreme Biotechnology"
+    },
+    {
+     "name": "Menghsiao MENG",
+     "role": "Professor · National Chung Hsing University"
+    },
+    {
+     "name": "Dr. E. Prakash",
+     "role": "Director of International Business Development · ACRO Biomedical"
+    }
+   ]
+  },
+  {
+   "kind": "session",
+   "start": "15:35",
+   "end": "16:05",
+   "rooms": [
+    "room2"
+   ],
+   "type": "workshop",
+   "badge": "Workshop",
+   "title": "Bridging Funding Gaps in Clinical Research by IOCB Foundation",
+   "desc": [
+    "Groundbreaking clinical research does not always fit conventional funding schemes or schedules. Promising projects may be too early to qualify for standard funding, while more advanced research can face unexpected experiments, urgent purchases or other essential steps that existing grants cannot cover quickly enough. IOCB Foundation's voucher program offers rapid and flexible funding of up to CZK 200,000 to help bridge these gaps and keep research moving forward. We will briefly introduce the program, explain what it can support and how it works, and invite discussion on possible collaboration."
+   ],
+   "speakers": [
+    {
+     "name": "Dusan Brinzanik",
+     "role": "Director · IOCB Foundation"
+    }
+   ]
+  },
+  {
+   "kind": "session",
+   "start": "15:45",
+   "end": "16:30",
+   "rooms": [
+    "room1"
+   ],
+   "type": "workshop",
+   "badge": "Poster Session & Coffee Break",
+   "title": "Poster Session & Coffee Break",
+   "desc": [
+    "Discover next breakthrough technologies and mingle during the Poster Session."
+   ],
+   "speakers": []
+  },
+  {
+   "kind": "session",
+   "start": "16:30",
+   "end": "16:40",
+   "rooms": [
+    "room1"
+   ],
+   "type": "sponsor",
+   "badge": "Sponsor Session",
+   "title": "CREATIC Introduction",
+   "desc": [
+    "Introduction of Centre of Excellence CREATIC, MU"
+   ],
+   "speakers": [
+    {
+     "name": "Jiri Samek",
+     "role": "Head of Knowledge Valorization Unit · Centre of excellence CREATIC, Faculty of Medicine, Masaryk University"
+    }
+   ]
+  },
+  {
+   "kind": "session",
+   "start": "16:40",
+   "end": "17:10",
+   "rooms": [
+    "room1"
+   ],
+   "type": "keynote",
+   "badge": "Keynote",
+   "title": "Markus Gerhard, TUM Venture Labs",
+   "desc": [
+    "How can scientific discoveries be translated into viable healthcare companies? TUM Venture Labs combine domain expertise, entrepreneurial support and a highly connected ecosystem to guide teams from early discovery through validation, company formation and funding. Markus Gerhard will present the TUM Venture Lab Healthcare model and the results achieved since its launch."
+   ],
+   "speakers": [
+    {
+     "name": "Markus Gerhard",
+     "role": "TUM Venture Labs"
+    }
+   ]
+  },
+  {
+   "kind": "session",
+   "start": "17:10",
+   "end": "17:50",
+   "rooms": [
+    "room1"
+   ],
+   "type": "panel",
+   "badge": "Panel Discussion",
+   "title": "TechBio Panel Discussion",
+   "desc": [
+    "The third panel discussion will explore the impact of AI in biotech. Can TechBio fundamentally change the speed limit of biotechnology - or is it simply helping us move more efficiently within biology's natural constraints? Chaired by Jan Szollos, CBO of QurieGen, the panel will feature diverse perspectives from leaders across the ecosystem."
+   ],
+   "speakers": [
+    {
+     "name": "Jared Auclair",
+     "role": "Dean, College of Professional Studies · Northeastern University"
+    },
+    {
+     "name": "Boldizsar Elek",
+     "role": "VP Scientific Operations · Turbine.AI"
+    },
+    {
+     "name": "Wallace Lin",
+     "role": "Secretary General · Taiwan BIO"
+    },
+    {
+     "name": "Murat Tunaboylu",
+     "role": "CEO and Co-founder · Antiverse"
+    },
+    {
+     "name": "Moderator: Jan Szollos",
+     "role": "CBO · QurieGen"
+    }
+   ]
+  },
+  {
+   "kind": "session",
+   "start": "17:15",
+   "end": "17:45",
+   "rooms": [
+    "room2"
+   ],
+   "type": "workshop",
+   "badge": "Workshop",
+   "title": "Essentials of a Good Tech Transfer Agreement",
+   "desc": [
+    "Turning scientific discoveries into commercial reality is a journey full of legal complexities. Join our interactive workshop to bridge the gap between academic vision and commercial reality. Gain practical tools for protecting your IP, structuring deal architecture between academia and industry, and navigating regulatory hurdles and conflicts of interest before they derail investment. Designed for scientists, spin-offs, commercial partners and TTO professionals alike - learn how to avoid critical pitfalls and build lasting value from your innovation."
+   ],
+   "speakers": [
+    {
+     "name": "Barbora Dubanska",
+     "role": "Managing Partner · dubanska & co."
+    }
+   ]
+  },
+  {
+   "kind": "session",
+   "start": "17:50",
+   "end": "18:00",
+   "rooms": [
+    "room1",
+    "room2",
+    "room3"
+   ],
+   "type": "keynote",
+   "badge": "Closing Remarks + Awards",
+   "title": "Closing Remarks & Pitch Competition Awards",
+   "desc": [
+    "Winners of the Pitch Competition announced; and the programme of the conference is officially concluded."
+   ],
+   "speakers": []
+  },
+  {
+   "kind": "break",
+   "start": "18:00",
+   "end": "21:00",
+   "icon": "confetti",
+   "title": "Networking Reception",
+   "meta": "until 21:00",
+   "rooms": [
+    "room1",
+    "room2",
+    "room3"
+   ]
+  }
+ ]
+}

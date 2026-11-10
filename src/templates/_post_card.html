@@ -1,0 +1,13 @@
+<li class="post-card-li" data-cats="{{ p.cat_keys|join(' ') }}" data-text="{{ p.title }} {{ p.excerpt_h }} {{ p.cats_h|join(' ') }} {{ p.search_text }}"{% if OUT == 'news-events.html' and p.slug == posts[0].slug %} data-dup hidden{% endif %} data-reveal>
+  <a class="post-card group" href="{{ u(p.url) }}">
+    <span class="post-media media-zoom">
+      {% if p.image %}{{ pic(p.image.replace('assets/', ''), '', sizes='(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 80vw') }}{% else %}<span class="post-ph" aria-hidden="true">{{ icon('newspaper') }}</span>{% endif %}
+      {% if p.cats_h %}<span class="chip chip-glass absolute left-3 top-3">{{ p.cats_h[0] }}</span>{% endif %}
+    </span>
+    <span class="flex flex-1 flex-col gap-2 p-1 pt-4">
+      <span class="t-meta flex items-center gap-3"><time datetime="{{ p.date }}">{{ p.date_h }}</time><span aria-hidden="true">·</span><span>{{ p.minutes }} min read</span></span>
+      <span class="t-h4 line-clamp-3 transition-colors group-hover:text-accent">{{ p.title }}</span>
+      <span class="t-small line-clamp-2">{{ p.excerpt_h }}</span>
+    </span>
+  </a>
+</li>

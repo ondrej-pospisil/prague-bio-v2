@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% import "_ui.html" as ui with context %}
+{% set title = 'About us – Prague.bio' %}
+{% set desc = 'Prague.bio was founded in 2023 with the vision of uniting key players in the life sciences sector in the Czech Republic.' %}
+{% set nav = 'about' %}
+{% set LOGOS = [('bristol-myers-squibb','Bristol Myers Squibb'),('arxada','Arxada'),('betthera','Betthera'),('casinvent','Casinvent'),('diana-biotechnologies','Diana Biotechnologies'),('dnai','DNAi'),('dubanskaco','dubanska & co.'),('enantis','Enantis'),('fgu','Institute of Physiology CAS'),('focus','Focus'),('ii-1','i&i Prague'),('ibt','Institute of Biotechnology CAS'),('img','Institute of Molecular Genetics CAS'),('jic-1','JIC'),('kapaji','Kapaji'),('keymove','KeyMove'),('lam-x','LAM-X')] %}
+
+{% block main %}
+{# ===== HERO – text v prázdném rohu masky ===== #}
+<section class="relative pt-[calc(var(--header-h)+1.5rem)] md:pt-[calc(var(--header-h)+2rem)]" data-hero aria-labelledby="hero-title">
+  {{ ui.molecule(1, 'molecule-hero') }}
+  <div class="wrap hero-stack hero-stack-tr">
+    {{ ui.shape('about-hero', 'img/about/about-hero.jpg', 'Laboratory pipette dropping a sample into a dish', cls='hero-shape', eager=True, sizes='100vw') }}
+    <div class="hero-copy">
+      <h1 class="t-display" id="hero-title" data-split>Get to know<br> <span class="text-grad">Prague.bio</span></h1>
+      <p class="t-lead mt-5 md:mt-6" data-reveal style="--d:200ms">Prague.bio was founded in 2023 with the vision of uniting key players in the life sciences sector in the Czech Republic. Our goal is to integrate R&amp;D, innovation, business, and policy-making activities across the country. We strive to create a unified voice for the biotech sector in the Czech Republic and to promote the local ecosystem abroad.</p>
+    </div>
+  </div>
+</section>
+
+{# ===== loga členů ===== #}
+<div class="marquee mt-12 md:mt-16" data-marquee aria-label="Members of Prague.bio">
+  <ul class="marquee-track" role="list">
+    {% for f, alt in LOGOS %}<li class="w-56 shrink-0 md:w-72">{{ logo('img/logos/' ~ f ~ '.svg', alt, cls='logo-plain', area=0.062) }}</li>{% endfor %}
+  </ul>
+</div>
+
+{# ===== klíčové aktivity ===== #}
+<section class="section" aria-labelledby="activities-title">
+  <div class="wrap">
+    <div class="grid gap-8 lg:grid-cols-2 lg:gap-16">
+      {% call ui.head('What are the key activities of Prague.bio?', id='activities-title') %}{% endcall %}
+      <div class="grid gap-5 t-lead sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2" data-stagger>
+        <p data-reveal>Being part of Prague.bio means being at the forefront of change – influencing the direction Czech biotech will take. Not just observing, but shaping the future.</p>
+        <p data-reveal>Our ambition is to bring together at least 70% of Czech entities active in the life sciences field and to become their key partner in creating, developing, and utilizing a dynamic ecosystem that connects research, innovation, business, and public sector.</p>
+      </div>
+    </div>
+    {{ ui.shape('about-team', 'img/about/about-team.jpg', 'The Prague.bio team', cls='mt-12 md:mt-16', sizes='100vw') }}
+  </div>
+</section>
+
+{# ===== vize / mise / priority / hodnoty – bento ===== #}
+<section class="pb-[var(--section-y)]" aria-label="Vision, mission, priorities and values">
+  <div class="wrap bento">
+    <article class="card card-grad card-pad bento-vision relative overflow-hidden" data-reveal>
+      <span class="icon-badge bg-white/20 text-white">{{ icon('shooting-star') }}</span>
+      <h2 class="eyebrow no-line mt-6 !text-white/80">Our vision</h2>
+      <p class="t-h2 mt-3 text-white">The Czech Republic as a life science hub on the map of Europe.</p>
+      <img class="pointer-events-none absolute -right-24 -bottom-24 w-80 opacity-20 mix-blend-overlay" src="{{ a('svg/molecule-2.svg') }}" alt="" aria-hidden="true" loading="lazy">
+    </article>
+    <article class="card card-pad bento-values" data-reveal>
+      {{ ui.badge('heart') }}
+      <h2 class="t-h3 mt-5">Our values</h2>
+      <ul class="mt-6 flex flex-wrap gap-2" role="list">
+        {% for v in ['Partnership', 'Innovation', 'Collaboration', 'Excellence'] %}<li class="value-pill">{{ v }}</li>{% endfor %}
+      </ul>
+    </article>
+    <article class="card card-pad bento-mission" data-reveal>
+      <div class="flex items-center gap-4">{{ ui.badge('target') }}<h2 class="t-h3">Our mission</h2></div>
+      {{ ui.checklist([
+        'Unlock the potential of the life science sector to become one of the pillars of the future development of the Czech economy and society.',
+        'Foster collaboration across research, application, and investment sectors by connecting key stakeholders and creating an environment that supports growth.',
+        'Develop the local infrastructure and create strong, globally competitive ecosystem.',
+        'Increase the international visibility of the Czech life science ecosystem.',
+        'Retain local talent and attract foreign talent through opportunities for their meaningful employment.',
+        'Establish an environment that encourages the creation of industry start-ups and spin-offs, fosters business growth, and attracts investment.'], cols=2, cls='mt-6') }}
+    </article>
+    <article class="card card-pad bento-priorities" data-reveal>
+      <div class="flex items-center gap-4">{{ ui.badge('flag-banner') }}<h2 class="t-h3">Our strategic priorities</h2></div>
+      <ol class="numlist mt-6 md:grid-cols-2">
+        <li>Actively participate in the development of policies related to the advancement of the life sciences sector in the Czech Republic.</li>
+        <li>Connect key stakeholders in the life sciences sector with the goal of fostering innovation and maximizing the use of scientific and technological potential in the Czech Republic.</li>
+        <li>Support the development of competencies needed to build new companies in the life sciences sector.</li>
+        <li>Increase the visibility of the Czech Republic in the international life sciences sector.</li>
+      </ol>
+    </article>
+  </div>
+</section>
+
+{# ===== tým ===== #}
+<section class="section-sm" aria-labelledby="team-title">
+  <div class="wrap">
+    {% call ui.head('Meet our team', id='team-title') %}{% endcall %}
+    <ul class="rail mt-10 rail-md md:grid-cols-3 md:gap-5" id="team" data-rail role="list" style="--rail-w:72%">
+      {% for img, name, role in [('photo-3-1.png', 'Petra Kinzlova', 'CEO'), ('photo-2-1.png', 'Jiri Fusek', 'Managing director'), ('photo-1-2.png', 'Kristina Svobodova', 'Marketing Manager')] %}
+      <li class="team-card" data-reveal style="--d:{{ loop.index0 * 80 }}ms">
+        <span class="team-photo">{{ pic('img/about/' ~ img, name, sizes='(min-width: 768px) 30vw, 72vw') }}</span>
+        <h3 class="t-h4 mt-4">{{ name }}</h3>
+        <p class="t-small">{{ role }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="rail-dots md:hidden" data-rail-dots="team"></div>
+  </div>
+</section>
+
+{# ===== orgány spolku ===== #}
+<section class="section" aria-labelledby="bodies-title">
+  <div class="wrap">
+    {% call ui.head('Official bodies of Prague.bio', id='bodies-title') %}{% endcall %}
+    <div class="mt-10 grid gap-4 md:mt-14">
+      <div class="body-row" data-reveal>
+        <h3 class="t-h3">General meeting</h3>
+        <p class="t-lead">Once a year, we organize a meeting with all our members to present our activities, financial updates, and upcoming plans.</p>
+      </div>
+      <div class="body-row" data-reveal>
+        <h3 class="t-h3">Executive board</h3>
+        <ul class="rail rail-md md:grid-cols-3 md:gap-4 xl:grid-cols-5" id="board" data-rail role="list" style="--rail-w:62%">
+          {% for img, name, role, org in [('photo-2.png','Karel Kubias','Chairman of the Board · Partner','i&i Biotech Fund'),('photo-1-1.png','Barbora Dubanska','Partner','dubanska&co.'),('tomas_foto-1-e1767787895746.jpg','Tomas Pala','Corporate Affairs Manager','Zentiva Group'),('photo-3.png','Martin Polak','Deputy Director','Institute of Molecular Genetics of the CAS'),('photo-4.png','Martina Plisova','Head of TT','Institute of Biotechnology of the CAS')] %}
+          <li class="board-card">
+            <span class="board-photo">{{ pic('img/about/' ~ img, name, sizes='96px') }}</span>
+            <span class="font-bold leading-snug">{{ name }}</span>
+            <span class="t-small leading-snug">{{ role }}</span>
+            <span class="t-meta mt-auto pt-2">{{ org }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="body-row" data-reveal>
+        <h3 class="t-h3">Supervisory board</h3>
+        <ul class="grid gap-3 md:grid-cols-3" role="list">
+          {% for name, role, org in [('Katerina Kovarickova','Head of Research and TTO','University of Chemistry and Technology'),('Jiri Gabriel','Vice-Director','Institute of Microbiology of the CAS'),('Hana Kosova','Public Affairs and Strategic Partnerships Manager','IOCB Tech')] %}
+          <li class="board-card board-card-row">
+            <span class="board-initials" aria-hidden="true">{{ name.split()|map('first')|join('') }}</span>
+            <span class="flex min-w-0 flex-col"><span class="font-bold leading-snug">{{ name }}</span><span class="t-small leading-snug">{{ role }}</span><span class="t-meta mt-1">{{ org }}</span></span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ===== výroční zpráva ===== #}
+<section class="pb-[var(--section-y)]" aria-labelledby="report-title">
+  <div class="wrap">
+    <div class="cta-band">
+      {{ pic('img/hero.jpg', '', cls='cta-band-bg', sizes='100vw') }}
+      <div class="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+        <h2 class="t-h1 text-white" id="report-title" data-split>Annual report</h2>
+        {{ ui.resource('https://prague.bio/wp-content/uploads/2025/10/PragueBio_vyrocnizprava_2024.pdf', 'Download the Annual Report', 'Prague.bio · 2024', cls='resource-glass w-full md:w-auto md:min-w-96') }}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

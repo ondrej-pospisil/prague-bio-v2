@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% import "_ui.html" as ui with context %}
+{% set title = 'Our members – Prague.bio' %}
+{% set desc = 'Prague.bio unites biotech companies, startups, research institutes and partners within the Czech biotech ecosystem.' %}
+{% set nav = 'members' %}
+{% set members = load('members') %}
+
+{% block main %}
+<section class="relative pt-[calc(var(--header-h)+3rem)] md:pt-[calc(var(--header-h)+5rem)]" data-hero aria-labelledby="hero-title">
+  {{ ui.molecule(1, 'molecule-hero') }}
+  <div class="wrap">
+    {% call ui.head('Our members', lead='Prague.bio unites biotech companies, startups, research institutes and partners within the Czech biotech ecosystem. The association currently has 54 members.', level=1, id='hero-title', size='t-display') %}{% endcall %}
+  </div>
+</section>
+
+<section class="section-sm" aria-label="List of members" data-filterable>
+  <div class="wrap">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <p class="t-small"><b class="text-fg t-num" data-count-out>{{ members|length }}</b> members</p>
+      <label class="search-field sm:w-80">{{ icon('magnifying-glass') }}<span class="visually-hidden">Search members</span><input class="input" type="search" placeholder="Search members" data-search></label>
+    </div>
+    <ul class="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-3 md:gap-3 lg:grid-cols-5" role="list" data-items>
+      {% for m in members %}
+      <li data-text="{{ m.name }} {{ m.text|join(' ') }}" data-reveal style="--d:{{ (loop.index0 % 5) * 40 }}ms">
+        {% if m.file %}
+          {{ logo('img/members/' ~ m.file, m.name, cls='logo-tile member-tile', tag='button', attrs='type="button" data-person="members:' ~ loop.index0 ~ '" aria-haspopup="dialog" aria-label="' ~ m.name ~ '"', area=0.085) }}
+        {% else %}
+          <button class="logo-tile member-tile" type="button" data-person="members:{{ loop.index0 }}" aria-haspopup="dialog"><span class="px-4 text-center font-bold leading-snug">{{ m.name }}</span></button>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="card card-soft card-pad mt-6 text-center t-body" data-empty hidden>No members found.</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="join-title">
+  <div class="wrap">
+    <div class="cta-band">
+      {{ pic('img/members-networking.jpg', '', cls='cta-band-bg', sizes='100vw') }}
+      <div class="relative flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+        <h2 class="t-h1 max-w-xl text-white" id="join-title" data-split>Join the Czech biotech community</h2>
+        {{ ui.btn('Become a member', 'membership.html', 'primary', 'arrow-right', size='lg') }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="application/json" data-people="members">{{ json(people(members, 'members', eyebrow='Member', logo=True)) }}</script>
+{% endblock %}

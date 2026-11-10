@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% import "_ui.html" as ui with context %}
+{% set title = 'Design system – Prague.bio' %}
+{% set desc = 'Prague.bio design system: tokens, themes, typography, spacing, radii, components and motion.' %}
+{% set icons = ICON_NAMES %}
+
+{% set noindex = true %}
+
+{% macro demo() %}
+  <div class="flex flex-col gap-5">
+    <p class="eyebrow">Eyebrow label</p>
+    <p class="t-h3">Your <span class="text-grad">biotech hub</span></p>
+    <p class="t-small">Components read only semantic tokens, so the same markup works in every theme.</p>
+    <div class="flex flex-wrap gap-2">{{ ui.btn('Primary', '#', 'primary', 'arrow-right', size='sm') }}{{ ui.btn('Secondary', '#', 'secondary', '', size='sm') }}</div>
+    <div class="flex flex-wrap gap-2"><span class="chip">Chip</span><span class="chip chip-muted">Muted</span><button class="filter" type="button" aria-pressed="true">Active</button></div>
+    <div class="inline-form"><input class="input" placeholder="E-mail" aria-label="E-mail demo"><button class="btn btn-primary btn-sm" type="button">Send</button></div>
+  </div>
+{% endmacro %}
+
+{% block main %}
+<section class="relative pt-[calc(var(--header-h)+3rem)] md:pt-[calc(var(--header-h)+5rem)]" data-hero aria-labelledby="hero-title">
+  {{ ui.molecule(1, 'molecule-hero') }}
+  <div class="wrap flex flex-col gap-6">
+    <p class="eyebrow" data-reveal>Design report · {{ YEAR }}</p>
+    <h1 class="t-display" id="hero-title" data-split>Prague.bio <span class="text-grad">design system</span></h1>
+    <p class="t-lead max-w-2xl" data-reveal>Built on Tailwind CSS v4 with our own tokens. One set of components, three themes, a clear scale for type, spacing and radii, and one motion language.</p>
+    <nav class="filterbar !static !mx-0 !p-0" aria-label="Sections"><div class="filterbar-inner no-scrollbar" data-spy-nav>
+      {% for id, l in [('themes','Themes'),('colors','Colors'),('type','Typography'),('space','Spacing & radii'),('components','Components'),('lists','Lists'),('icons','Icons'),('motion','Motion')] %}<a class="filter" href="#{{ id }}">{{ l }}</a>{% endfor %}
+      <a class="filter" href="{{ u('shapes.html') }}">Masks {{ icon('arrow-up-right') }}</a>
+    </div></nav>
+  </div>
+</section>
+
+<div class="wrap flex flex-col gap-[var(--section-y)] py-[var(--section-y)]">
+
+  <section id="themes" aria-labelledby="th-t" class="sg-section">
+    <h2 class="t-h2" id="th-t">Themes</h2>
+    <p class="t-body mt-3 max-w-2xl">Main web is light. The conference sub-site is dark navy with neon accent, the Executive Academy uses violet. Sub-sites use the split header with “← Prague.bio”. The footer is always dark and takes the tint of the theme.</p>
+    <div class="mt-8 grid gap-4 lg:grid-cols-3">
+      {% for t, l in [('light', 'Main web'), ('conference', 'Conference'), ('academy', 'Academy')] %}
+      <div class="sg-theme" data-theme="{{ t }}"><p class="t-meta mb-5">{{ l }} · data-theme="{{ t }}"</p>{{ demo() }}</div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="colors" aria-labelledby="co-t" class="sg-section">
+    <h2 class="t-h2" id="co-t">Colors</h2>
+    <p class="t-body mt-3 max-w-2xl">Brand colors are static; components use semantic tokens (<code>bg</code>, <code>fg</code>, <code>muted</code>, <code>surface</code>, <code>line</code>, <code>accent</code>) that each theme remaps.</p>
+    <ul class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7" role="list">
+      {% for n, v in [('Blue','#0a94ed'),('Cyan','#00abdf'),('Teal','#66c1be'),('Cobalt','#0066b3'),('Navy','#0b1e34'),('Ink','#0c111d'),('Slate','#495057'),('Neon','#25ffda'),('Violet','#9d77b4'),('Violet 700','#8558a0'),('Violet 400','#b27dd2'),('Violet 200','#cdb2d5')] %}
+      <li class="sg-swatch"><span style="background:{{ v }}"></span><b>{{ n }}</b><code>{{ v }}</code></li>
+      {% endfor %}
+      <li class="sg-swatch"><span style="background:linear-gradient(140deg,#00abdf,#66c1be)"></span><b>Gradient</b><code>cyan → teal</code></li>
+      <li class="sg-swatch"><span style="background:linear-gradient(140deg,#25ffda,#00abdf)"></span><b>Neon</b><code>conference</code></li>
+    </ul>
+  </section>
+
+  <section id="type" aria-labelledby="ty-t" class="sg-section">
+    <h2 class="t-h2" id="ty-t">Typography</h2>
+    <p class="t-body mt-3 max-w-2xl">Geologica (variable, OFL) everywhere. Headings regular weight with tight tracking, labels bold uppercase. Sizes are fluid (clamp) between mobile and desktop.</p>
+    <div class="mt-8 divide-y divide-line border-y border-line">
+      {% for c, l, s in [('t-display','Display','40 → 76 px'),('t-h1','Heading 1','36 → 64 px'),('t-h2','Heading 2','30 → 48 px'),('t-h3','Heading 3','22 → 30 px'),('t-h4','Heading 4','18 → 21 px'),('t-lead','Lead','17 → 21 px'),('t-body','Body','17 px'),('t-small','Small','15 px'),('t-meta','Meta','13 px'),('eyebrow','Eyebrow','12 px · bold · 0.14em')] %}
+      <div class="grid gap-2 py-5 md:grid-cols-[12rem_1fr] md:items-baseline"><span class="t-meta">{{ l }} · <code>.{{ c }}</code><br>{{ s }}</span><p class="{{ c }}">Your biotech hub in the heart of Europe</p></div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="space" aria-labelledby="sp-t" class="sg-section">
+    <h2 class="t-h2" id="sp-t">Spacing &amp; radii</h2>
+    <div class="mt-8 grid gap-4 lg:grid-cols-2">
+      <div class="card card-pad">
+        <h3 class="t-h4">Spacing – base 4 px</h3>
+        <ul class="mt-6 grid gap-3" role="list">
+          {% for n, px, use in [('Section','64 → 128','.section, var(--section-y)'),('Block','40 – 64','between header and content'),('Group','16 – 24','items in a grid / stack'),('Card padding','20 → 32','.card-pad'),('Control','12 – 16','inside buttons and inputs'),('Gutter','20 → 72','.wrap side padding')] %}
+          <li class="grid grid-cols-[7rem_1fr] items-center gap-4"><span class="sg-bar" style="--w:{{ px.split(' ')[-1]|int if px.split(' ')[-1].isdigit() else 24 }}px"></span><span><b>{{ n }}</b> <span class="t-meta">· {{ px }} px · {{ use }}</span></span></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="card card-pad">
+        <h3 class="t-h4">Radius scale</h3>
+        <p class="t-small mt-2">Nested element = parent radius − its padding. One step smaller on mobile.</p>
+        <ul class="mt-6 grid grid-cols-3 gap-3 sm:grid-cols-4" role="list">
+          {% for n, v, use in [('xs','6','tags'),('sm','10','small buttons'),('md','14','controls'),('lg','22','cards'),('xl','32','media'),('2xl','44','hero, bands'),('3xl','64','footer'),('full','999','chips, pills')] %}
+          <li class="flex flex-col gap-2"><span class="sg-radius" style="border-radius:{{ v }}px"></span><b class="text-sm">{{ n }} · {{ v }}</b><span class="t-meta">{{ use }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="components" aria-labelledby="cm-t" class="sg-section">
+    <h2 class="t-h2" id="cm-t">Components</h2>
+    <div class="mt-8 grid gap-4 lg:grid-cols-2">
+      <div class="card card-pad flex flex-col gap-5">
+        <h3 class="t-h4">Buttons</h3>
+        <div class="flex flex-wrap items-center gap-2">{{ ui.btn('Primary', '#', 'primary', 'arrow-right') }}{{ ui.btn('Secondary', '#', 'secondary', '') }}{{ ui.btn('Ghost', '#', 'ghost', '') }}<button class="btn btn-secondary btn-icon" type="button" aria-label="Icon button">{{ icon('plus') }}</button></div>
+        <div class="flex flex-wrap items-center gap-2">{{ ui.btn('Large', '#', 'primary', 'arrow-right', size='lg') }}{{ ui.btn('Small', '#', 'secondary', '', size='sm') }}{{ ui.btn('External', 'https://prague.bio', 'secondary', ext=True, size='sm') }}</div>
+        <p class="t-meta">Heights 40 / 48 / 56 px · radius md · uppercase 0.06em · arrow moves on hover · primary has a light sweep.</p>
+      </div>
+      <div class="card card-pad flex flex-col gap-4">
+        <h3 class="t-h4">Inputs</h3>
+        {{ ui.field('sg-name', 'Name', required=True, placeholder='Name and Surname') }}
+        <div class="field is-invalid"><label class="label" for="sg-err">E-mail <span class="req">*</span></label><input class="input" id="sg-err" value="wrong@"><p class="field-error">Please enter a valid e-mail.</p></div>
+        <div class="grid gap-3 sm:grid-cols-2"><select class="select" aria-label="Select"><option>Select</option></select><label class="search-field">{{ icon('magnifying-glass') }}<input class="input" type="search" placeholder="Search" aria-label="Search"></label></div>
+        {{ ui.consent('sg-consent') }}
+      </div>
+      <div class="card card-pad flex flex-col gap-5">
+        <h3 class="t-h4">Chips, filters, tabs</h3>
+        <div class="flex flex-wrap gap-2"><span class="chip">Accent</span><span class="chip chip-muted">Muted</span><span class="chip chip-glass">Glass</span><span class="chip live-badge">Live now</span></div>
+        <div class="flex flex-wrap gap-2"><button class="filter" type="button" aria-pressed="true">All <span class="count">21</span></button><button class="filter" type="button" aria-pressed="false">Interviews <span class="count">2</span></button></div>
+        <div class="glass self-start rounded-full"><div class="tabbar-inner"><a class="tab" href="#components" aria-current="true">Program</a><a class="tab" href="#components">Speakers</a><a class="tab" href="#components">FAQ</a></div></div>
+      </div>
+      <div class="flex flex-col gap-3">
+        {{ ui.resource('#', 'Unified download card', 'Every PDF / ZIP output uses this', kind='PDF') }}
+        {{ ui.resource('#', 'Visuals pack', 'ZIP', kind='ZIP') }}
+        <div class="grid grid-cols-3 gap-2">
+          {% for f in ['bristol-myers-squibb', 'diana-biotechnologies', 'jic-1'] %}{{ logo('img/logos/' ~ f ~ '.svg', logo_alt('logos/' ~ f), area=0.085) }}{% endfor %}
+        </div>
+        <p class="t-meta">Logos: build trims empty margins and balances the optical area, so wide and square logos look equally heavy.</p>
+      </div>
+      <div class="lg:col-span-2 grid gap-4 md:grid-cols-3">
+        {{ ui.feature('rocket-launch', 'Feature card', 'Icon badge, title, text. Lifts on hover.') }}
+        <article class="card card-glass card-pad relative overflow-hidden"><span class="glow" style="width:16rem;height:16rem;right:-6rem;top:-6rem"></span><h3 class="t-h4">Glass card</h3><p class="t-small mt-2">Backdrop blur + saturate, used over photos and on dark bands.</p></article>
+        <article class="card card-ring card-pad"><h3 class="t-h4">Ring card</h3><p class="t-small mt-2">Gradient border for highlighted content (featured tier, notes).</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="lists" aria-labelledby="li-t" class="sg-section">
+    <h2 class="t-h2" id="li-t">Lists instead of bullets</h2>
+    <p class="t-body mt-3 max-w-2xl">Long bullet lists outside blog posts become checklists, numbered cards or step timelines. On mobile, sets of cards become horizontal rails with dots.</p>
+    <div class="mt-8 grid gap-6 lg:grid-cols-2">
+      {{ ui.checklist(['Checklist item with a check badge', 'Two columns on tablet and up', 'Subtle surface, hover tint']) }}
+      <ol class="numlist"><li>Numbered card for ordered priorities</li><li>Tabular numerals, accent counter</li></ol>
+      {{ ui.steps([('Step timeline', 'Vertical line with gradient fade.'), ('Second step', 'Numbers fill with accent on hover.')]) }}
+    </div>
+  </section>
+
+  <section id="icons" aria-labelledby="ic-t" class="sg-section">
+    <h2 class="t-h2" id="ic-t">Icons</h2>
+    <p class="t-body mt-3 max-w-2xl">Phosphor Light, stored locally in <code>src/icons</code>. Every page gets an inline sprite with only the icons it uses. Usage: <code>{{ "{{ icon('arrow-right') }}" }}</code>.</p>
+    <ul class="mt-8 grid grid-cols-3 gap-2 sm:grid-cols-5 lg:grid-cols-8" role="list">
+      {% for n in icons %}<li><button class="sg-icon" type="button" data-copy="{{ n }}" title="Copy name">{{ icon(n) }}<span data-copy-label>{{ n }}</span></button></li>{% endfor %}
+    </ul>
+  </section>
+
+  <section id="motion" aria-labelledby="mo-t" class="sg-section">
+    <h2 class="t-h2" id="mo-t">Motion</h2>
+    <div class="mt-8 grid gap-4 md:grid-cols-3">
+      {% for t, d in [('Hover · 200 ms', 'Color, border, lift by 2–4 px. ease-out-expo.'), ('UI · 400 ms', 'Menus, accordions, tabs, modals (bottom sheet on mobile).'), ('Reveal · 900 ms', 'Fade-up on scroll, headings by words, staggered groups. Gradient words drift slowly (10 s). Disabled for prefers-reduced-motion and ?static.')] %}
+      <div class="card card-pad"><h3 class="t-h4">{{ t }}</h3><p class="t-small mt-2">{{ d }}</p></div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+{% endblock %}

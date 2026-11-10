@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% import "_ui.html" as ui with context %}
+{% set title = 'Prague.bio – Czech biotech ecosystem & life sciences hub' %}
+{% set nav = 'home' %}
+{% set og_image = 'img/hero.jpg' %}
+
+{% block main %}
+{# ================= HERO ================= #}
+<section class="relative pt-[calc(var(--header-h)+1.5rem)] md:pt-[calc(var(--header-h)+2rem)]" data-hero aria-labelledby="hero-title">
+  {{ ui.molecule(1, 'molecule-hero') }}
+  <div class="wrap hero-stack">
+    {{ ui.shape('hero', 'img/hero.jpg', 'Petri dishes and laboratory glassware', cls='hero-shape', eager=True, sizes='100vw') }}
+    <div class="hero-copy">
+      <h1 class="t-display" id="hero-title" data-split>Your <span class="text-grad">biotech hub</span><br> in the heart of Europe</h1>
+      <p class="t-lead mt-5 max-w-[34rem] md:mt-6" data-reveal style="--d:200ms">We are positioning Prague and the Czech Republic as a leading biotechnology hub in Central Europe. We represent and connect key players, including companies, startups, research institutions, investors, and government bodies.</p>
+      <div class="mt-7 flex flex-wrap gap-3 md:mt-8" data-reveal style="--d:300ms">
+        {{ ui.btn('About Prague.bio', 'about-us.html', 'primary', 'arrow-right') }}
+        {{ ui.btn('Become a member', 'membership.html', 'secondary', '') }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ================= BIOTECH IN CZ ================= #}
+<section class="section" aria-labelledby="about-title">
+  <div class="wrap">
+    {% call ui.head('Biotech in the Czech Republic', eyebrow='Strong potential', lead='The Czech Republic has a strong scientific potential, with life sciences set to grow in importance.', align='center', id='about-title') %}
+      <div class="mt-2" data-reveal style="--d:200ms">{{ ui.btn('Find more info', 'biotech-in-cz.html', 'secondary', 'arrow-right') }}</div>
+    {% endcall %}
+
+    <ul class="stat-panel mt-12 md:mt-16" role="list" data-stagger>
+      {% for v, l in [('427', 'biotech entities (companies, research and educational institutions)'), ('32,000', 'employees in life sciences sector'), ('12,000', 'students in Biology, Biochemistry, Chemistry')] %}
+      <li class="stat-card" data-reveal>
+        <strong class="stat-value" data-count>{{ v }}</strong>
+        <span class="stat-label">{{ l }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{# ================= DOPORUČENÉ AKCE (kompaktní dvojice karet; na mobilu posuvný pás) ================= #}
+<section class="pb-[var(--section-y)]" aria-label="Featured events">
+  <div class="wrap">
+    <ul class="rail rail-md md:grid-cols-2 md:gap-5" id="banners" data-rail data-autoplay="7000" role="list" style="--rail-w:88%">
+      {% for href, ext, img, alt, eyebrow, title, meta in [
+        ('https://www.adc-tks.com/', True, 'img/slide-adc.jpg', 'ADC – Antibody-Drug Conjugates Symposium, Save the date: 16–17 September 2026, Prague, Czech Republic', 'Partner event', 'ADC – Antibody-Drug Conjugates Symposium', '16–17 September 2026 · Prague, Czech Republic'),
+        ('conference.html', False, 'img/slide-conference-2026.jpg', 'Prague.bio Conference – September 23, 2026, Prague, Czech Republic. More info and tickets', 'Prague.bio Conference', 'Prague.bio Conference 2026', 'September 23, 2026 · Prague, Czech Republic')] %}
+      <li data-reveal style="--d:{{ loop.index0 * 80 }}ms">
+        <a class="banner-card group" href="{{ u(href) }}"{% if ext %} target="_blank" rel="noopener"{% endif %}>
+          <span class="banner-media media-zoom">{{ pic(img, alt, eager=(loop.index == 1), sizes='(min-width: 1296px) 640px, (min-width: 768px) 46vw, 88vw') }}</span>
+          <span class="banner-cap">
+            <span class="min-w-0">
+              <span class="eyebrow no-line block !text-[.6875rem]">{{ eyebrow }}</span>
+              <span class="mt-1 block truncate font-medium leading-snug">{{ title }}</span>
+              <span class="t-meta mt-0.5 block truncate">{{ meta }}</span>
+            </span>
+            <span class="banner-go" aria-hidden="true">{{ icon('arrow-up-right' if ext else 'arrow-right') }}</span>
+          </span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="rail-dots md:hidden" data-rail-dots="banners"></div>
+  </div>
+</section>
+
+{# ================= WHY BECOME A MEMBER ================= #}
+<section class="section relative overflow-x-clip bg-surface-2 band-soft" aria-labelledby="member-title">
+  {{ ui.molecule(2, 'molecule-right') }}
+  <div class="wrap grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+    <div class="flex flex-col gap-8 lg:sticky lg:top-[calc(var(--header-h)+2.5rem)]">
+      {% call ui.head('Why become a member?', id='member-title') %}{% endcall %}
+      {{ ui.shape('members', 'img/members-networking.jpg', 'Prague.bio members shaking hands at a networking event', cls='w-full max-w-[34rem]', sizes='(min-width: 1024px) 40vw, 100vw') }}
+      <div class="hidden lg:block" data-reveal>{{ ui.btn('Become a member', 'membership.html', 'primary', 'arrow-right') }}</div>
+    </div>
+    {% set benefits = [
+      ('users-three', 'Growing community of biotech leaders', 'We currently have 54 members, ranging from large pharmaceutical companies and startups to R&D institutions and government bodies.'),
+      ('share-network', 'Expand your network', 'We encourage our members to connect and collaborate. Throughout the year, we organize events and meetings to foster meaningful relationships within the biotech community.'),
+      ('user-check', 'Find the right partners', 'Looking for matchmaking opportunities, investors or international partners? We can help you find the right connections.'),
+      ('shooting-star', 'Boost your visibility', 'Increase your presence in the biotech sector through our platform, events, and collaborations.'),
+      ('megaphone-simple', 'Make your voice heard', 'The biotech sector in the Czech Republic has been somewhat fragmented, and we aim to unify its voice. This strengthens our position when engaging with government bodies and other key stakeholders.'),
+      ('calendar-dots', 'Exclusive access to local & international events', 'Gain first-hand access to events organized by Prague.bio, as well as major international conferences where we offer opportunities for our members—such as exhibiting at our stand.'),
+    ] %}
+    <div>
+      <ul class="rail rail-md md:grid-cols-2 md:gap-4" id="benefits" data-rail role="list">
+        {% for ic, t, txt in benefits %}
+        <li class="benefit-card group" data-reveal>
+          {{ ui.badge(ic) }}
+          <h3 class="t-h4 mt-5">{{ t }}</h3>
+          <p class="t-small mt-2">{{ txt }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="rail-dots md:hidden" data-rail-dots="benefits"></div>
+      <div class="mt-8 lg:hidden">{{ ui.btn('Become a member', 'membership.html', 'primary', 'arrow-right') }}</div>
+    </div>
+  </div>
+</section>
+
+{# ================= EVENTS ================= #}
+{% include "_events.html" %}
+
+{# ================= CONFERENCE (tmavý pás) ================= #}
+<section class="pb-[var(--section-y)]" aria-labelledby="conference-title">
+  <div class="wrap">
+    <div class="band band-dark relative overflow-hidden" data-theme="conference">
+      <span class="glow" style="width:40rem;height:40rem;right:-12rem;top:-16rem;opacity:.25" aria-hidden="true"></span>
+      <div class="grid gap-10 p-5 sm:p-8 lg:grid-cols-2 lg:gap-14 lg:p-14">
+        <div class="flex flex-col gap-6">
+          {{ ui.video('YIzz0uNqNCI', 'img/conference-prague.jpg') }}
+          <dl class="feature-grid" data-stagger>
+            {% for t, txt in [('400+', 'relevant participants from the biotech industry'), ('20+', 'speakers'), ('Pitch session', 'featuring promising start-ups and R&D Teams'), ('Partnering system', 'for scheduling one-on-one meetings'), ('Friendly atmosphere', 'in the historic city of Prague')] %}
+            <div class="feature-cell{{ ' col-span-2' if loop.last }}" data-reveal><dt class="text-grad t-h4 font-bold">{{ t }}</dt><dd class="t-small mt-1">{{ txt }}</dd></div>
+            {% endfor %}
+          </dl>
+        </div>
+        <div class="flex flex-col justify-center gap-6 lg:order-first">
+          <p class="eyebrow" data-reveal>{{ icon('calendar-dots') }} September 23, 2026</p>
+          <h2 class="t-h1" id="conference-title" data-split>Prague.bio Conference 2026</h2>
+          <p class="t-lead" data-reveal>Fourth edition of our flagship event for start-ups, R&amp;D teams, investors, and experts in the biotech industry. Join us in the beautiful city of Prague to connect with key biotech players from across Central Europe.</p>
+          <div class="flex flex-wrap gap-3" data-reveal>{{ ui.btn('I want to attend', 'conference.html', 'primary', 'arrow-right', size='lg') }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

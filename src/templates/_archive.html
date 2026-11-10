@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% import "_ui.html" as ui with context %}
+{% set nav = 'conference' %}
+{% set theme = 'conference' %}
+{% set site = 'conference' %}
+{% block main %}
+<section class="relative overflow-hidden pt-[calc(var(--header-h)+3.5rem)] md:pt-[calc(var(--header-h)+5rem)]" data-hero aria-labelledby="a-title">
+  <span class="glow" style="width:46rem;height:46rem;right:-14rem;top:-20rem;opacity:.3" aria-hidden="true"></span>
+  <div class="wrap flex flex-col gap-6">
+    <a class="back-chip self-start" href="{{ u('conference.html') }}" data-reveal>{{ icon('arrow-left') }}<span>Back to the conference</span></a>
+    <img class="w-60 md:w-96" src="{{ a('img/conference/PragueBio_Conference_horizontalni_bila_RGB.svg') }}" width="514" height="64" alt="Prague.bio Conference" data-reveal>
+    {% if eyebrow %}<p class="eyebrow" data-reveal>{{ eyebrow }}</p>{% endif %}
+    <h1 class="t-display max-w-4xl" id="a-title" data-split>{{ heading }}</h1>
+    {% if lead %}<p class="t-lead max-w-3xl" data-reveal>{{ lead }}</p>{% endif %}
+    {% if photos %}<p class="t-meta" data-reveal>{{ photos|length }} photos</p>{% endif %}
+  </div>
+</section>
+{% if photos %}
+<section class="section-sm" aria-label="Photo gallery">
+  <div class="wrap">
+    <ul class="masonry" role="list" data-gallery>
+      {% for img in photos %}
+      <li><a class="masonry-item media-zoom" href="{{ a(img) }}">{{ pic(img, title ~ ' – photo ' ~ loop.index, sizes='(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw') }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+<section class="section-sm pb-[var(--section-y)]" aria-label="Other years">
+  <div class="wrap">
+    <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+      {% for href, label in SUBSITES.conference.extra if href != OUT %}
+      <a class="year-link group" href="{{ u(href) }}"><span class="flex-1">{{ label }}</span>{{ icon('arrow-right', 'ico ico-move') }}</a>
+      {% endfor %}
+      <a class="year-link group" href="{{ u('conference.html') }}"><span class="flex-1">Prague.bio Conference 2026</span>{{ icon('arrow-right', 'ico ico-move') }}</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

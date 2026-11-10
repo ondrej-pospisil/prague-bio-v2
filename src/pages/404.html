@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% import "_ui.html" as ui with context %}
+{% set title = 'Page not found – Prague.bio' %}
+{% set desc = 'The page you are looking for does not exist.' %}
+{% set noindex = true %}
+{% block main %}
+<section class="relative flex min-h-[80svh] items-center pt-[calc(var(--header-h)+2rem)]" data-hero aria-labelledby="nf-title">
+  {{ ui.molecule(2, 'molecule-hero') }}
+  <div class="wrap flex flex-col items-start gap-6 py-16">
+    <p class="eyebrow" data-reveal>Error 404</p>
+    <h1 class="t-display" id="nf-title" data-split>This page <span class="text-grad">wandered off</span></h1>
+    <p class="t-lead max-w-xl" data-reveal>The page you are looking for does not exist or has moved. Try one of these instead.</p>
+    <div class="flex flex-wrap gap-3" data-reveal>
+      {{ ui.btn('Back to homepage', 'index.html', 'primary', 'arrow-right', size='lg') }}
+      {{ ui.btn('News & events', 'news-events.html', 'secondary', size='lg') }}
+      {{ ui.btn('Conference 2026', 'conference.html', 'secondary', size='lg') }}
+    </div>
+  </div>
+</section>
+{% endblock %}
