@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Prague.bio – statický build (Jinja2 + Tailwind CSS v4).
 
-  src/pages/*.html   (Jinja šablony, dědí z src/templates/base.html)  ->  dist/*.html
-  src/data/posts.json                                                 ->  dist/news/<slug>.html
+  src/pages/*.html   (Jinja šablony, dědí z src/templates/base.html)  ->  public/*.html
+  src/data/posts.json                                                 ->  public/news/<slug>.html
   src/icons/*.svg    (Phosphor Light)        ->  inline sprite jen s ikonami, které stránka používá
-  src/styles/app.css (Tailwind)              ->  dist/assets/css/app.css   (tools/bin/tailwindcss)
-  src/assets                                 ->  dist/assets (WebP, WOFF2, ořezaná loga, minifikace)
+  src/styles/app.css (Tailwind)              ->  public/assets/css/app.css   (tools/bin/tailwindcss)
+  src/assets                                 ->  public/assets (WebP, WOFF2, ořezaná loga, minifikace)
 
 Použití:  .venv/bin/python tools/build.py          (viz README.md)
 """
@@ -13,7 +13,7 @@ import re, json, html as H, pathlib, sys, time, datetime, subprocess, shutil, ma
 
 ROOT_DIR = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT_DIR / 'src'
-DIST = ROOT_DIR / 'dist'
+DIST = ROOT_DIR / 'public'
 sys.path.insert(0, str(ROOT_DIR / 'tools'))
 import assets  # noqa: E402
 from jinja2 import Environment, FileSystemLoader, ChainableUndefined  # noqa: E402
@@ -502,7 +502,7 @@ def make_icons():
 
 
 def copy_deploy_files():
-    """Konfigurace nasazení (_headers, .htaccess…) ze src/deploy do kořene dist/."""
+    """Konfigurace nasazení (_headers, .htaccess…) ze src/deploy do kořene public/."""
     d = SRC / 'deploy'
     if d.exists():
         for f in d.iterdir():
@@ -595,7 +595,7 @@ def main():
     make_icons()
     copy_deploy_files()
     nz = precompress() if '--no-compress' not in sys.argv else 0
-    print(f'built {n} pages -> dist/  ·  app.css {size / 1024:.0f} kB  ·  {nz} souborů předkomprimováno  ·  {time.time() - t0:.1f}s')
+    print(f'built {n} pages -> public/  ·  app.css {size / 1024:.0f} kB  ·  {nz} souborů předkomprimováno  ·  {time.time() - t0:.1f}s')
     import check
     _, errors, warns = check.run(DIST)
     for w_ in warns:

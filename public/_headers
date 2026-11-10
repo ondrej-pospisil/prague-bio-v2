@@ -1,0 +1,22 @@
+# Netlify / Cloudflare Pages: hlavičky a cache (kopíruje se do kořene public/)
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Cache-Control: public, max-age=0, must-revalidate
+
+# CSS a JS mají verzi v adrese (?v=…) → lze cachovat napořád
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/js/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# obrázky nemají hash v názvu → měsíc + dorovnání na pozadí
+/assets/img/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+/assets/svg/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400

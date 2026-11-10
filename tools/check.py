@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Kontrola hotového webu v dist/: odkazy, kotvy, soubory, SEO, strukturovaná data a přístupnost.
+"""Kontrola hotového webu v public/: odkazy, kotvy, soubory, SEO, strukturovaná data a přístupnost.
 Chyby (rozbité odkazy/soubory, neplatné JSON-LD, chybějící H1) ukončí skript kódem 1, ostatní jsou varování.
 Použití:  .venv/bin/python tools/check.py      (spouští se také na konci buildu)"""
 import re, glob, os, json, sys, html as H, pathlib
 
-DIST = pathlib.Path(__file__).resolve().parent.parent / 'dist'
+DIST = pathlib.Path(__file__).resolve().parent.parent / 'public'
 SKIP = ('http', 'mailto:', 'tel:', '#', 'data:', 'javascript:')
 
 

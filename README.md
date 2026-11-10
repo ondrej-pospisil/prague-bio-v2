@@ -1,15 +1,15 @@
 # Prague.bio – web
 
 Statický web: Jinja2 šablony + Tailwind CSS v4 (vlastní design systém) + vanilla JS. Obsah 1:1 z prague.bio.
-Výstup je složka `dist/` – čisté statické soubory, žádný server ani databáze.
+Výstup je složka `public/` – čisté statické soubory, žádný server ani databáze.
 
 ## Rychlý start
 
 ```bash
 make setup    # jednorázově: Python venv, závislosti, Tailwind CLI (stáhne se samo)
 make dev      # build + náhled na http://localhost:8791
-make build    # produkční build do dist/ (kontrola + předkomprese)
-make check    # kontrola odkazů, kotev, souborů, SEO a přístupnosti v dist/
+make build    # produkční build do public/ (kontrola + předkomprese)
+make check    # kontrola odkazů, kotev, souborů, SEO a přístupnosti v public/
 ```
 
 Build automaticky na konci spouští `tools/check.py`; při chybě (rozbitý odkaz, chybějící soubor,
@@ -26,29 +26,29 @@ prague-bio/
 │   ├── data/          JSON obsah (články, členové, řečníci, organizace, program, masky shapes.json…)
 │   ├── icons/         Phosphor Light SVG (sprite se generuje jen z použitých ikon)
 │   ├── assets/        js (app.js, config.js), font Geologica, obrázky, svg
-│   └── deploy/        konfigurace serveru kopírovaná do kořene dist/ (_headers, .htaccess)
+│   └── deploy/        konfigurace serveru kopírovaná do kořene public/ (_headers, .htaccess)
 ├── tools/
 │   ├── build.py       Jinja → HTML, Tailwind CLI, sprite, SEO soubory, ikony, předkomprese, kontrola
 │   ├── assets.py      WebP + srcset 640, ořez log, WOFF2, minifikace, cache-busting
-│   ├── check.py       kontrola hotového dist/
+│   ├── check.py       kontrola hotového public/
 │   ├── setup.sh       příprava prostředí (venv + Tailwind CLI v4.1.13 se sha256 kontrolou)
 │   ├── dev.sh         build + lokální server
 │   └── content/       jednorázové importéry obsahu z původního WordPressu (gen_content.py, fetch.sh)
 ├── Makefile
-└── dist/              VÝSTUP – nahrává se na server (není v gitu)
+└── public/              VÝSTUP – nahrává se na server (součástí gitu, ze složky se nasazuje)
 ```
 
 Podklady z designu (export, starší verze, fonty) jsou mimo projekt v `~/Desktop/prague-bio-archiv/`.
 
 ## Nasazení
 
-Nahrává se **celý obsah `dist/`** do kořene domény.
+Nahrává se **celý obsah `public/`** do kořene domény.
 
 | Hosting | Co dělat |
 |---|---|
-| Vercel | Bez buildu: `vercel.json` jen servíruje hotovou složku `dist/`, která je součástí gitu (Python na Vercelu se nespouští). Před každým pushem spusťte `make build`. Framework Preset nechte „Other“. |
-| Netlify / Cloudflare Pages | Publish directory `dist`; `_headers` (cache + bezpečnostní hlavičky) se použije automaticky. |
-| Apache / klasický webhosting | Nahrát `dist/` včetně skrytého `.htaccess` (404, cache, gzip, předkomprimované `.br`/`.gz`). |
+| Vercel | Bez buildu: `vercel.json` servíruje hotovou složku `public/`, která je součástí gitu (Python na Vercelu se nespouští). Před každým pushem spusťte `make build`. Framework Preset nechte „Other“. |
+| Netlify / Cloudflare Pages | Publish directory `public`; `_headers` (cache + bezpečnostní hlavičky) se použije automaticky. |
+| Apache / klasický webhosting | Nahrát `public/` včetně skrytého `.htaccess` (404, cache, gzip, předkomprimované `.br`/`.gz`). |
 | Nginx | Zapnout `gzip_static on;` (příp. `brotli_static on;`), `error_page 404 /404.html;`, dlouhé cachování `assets/` (soubory mají verzi v URL `?v=…`). |
 
 Co build vytváří navíc: `sitemap.xml`, `robots.txt`, `llms.txt`, `favicon.ico`, `apple-touch-icon.png`,

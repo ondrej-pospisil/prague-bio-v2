@@ -9,11 +9,11 @@ setup:   ## jednorázově: venv, závislosti, Tailwind CLI
 dev:     ## build + náhled na http://localhost:8791
 	sh tools/dev.sh
 
-build:   ## produkční build do dist/ (včetně kontroly a předkomprese)
+build:   ## produkční build do public/ (včetně kontroly a předkomprese)
 	$(PY) tools/build.py
 
-check:   ## kontrola odkazů, SEO a přístupnosti hotového dist/
+check:   ## kontrola odkazů, SEO a přístupnosti hotového public/
 	$(PY) tools/check.py
 
-clean:   ## smaže dist/
-	rm -rf dist
+clean:   ## smaže public/
+	rm -rf public

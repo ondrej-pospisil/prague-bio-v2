@@ -1,4 +1,4 @@
-# Netlify / Cloudflare Pages: hlavičky a cache (kopíruje se do kořene dist/)
+# Netlify / Cloudflare Pages: hlavičky a cache (kopíruje se do kořene public/)
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN

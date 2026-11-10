@@ -1,4 +1,4 @@
-"""Prague.bio – optimalizace assetů pro dist/.
+"""Prague.bio – optimalizace assetů pro public/.
 
 - Obrázky: .jpg/.jpeg/.png -> .webp (kvalita 80, max. 2000 px) + varianta -640.webp pro velké fotky (srcset)
            loga (img/logos, members, partners, …) se automaticky ořežou o prázdné/bílé okraje

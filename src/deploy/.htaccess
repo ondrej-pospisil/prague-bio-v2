@@ -1,4 +1,4 @@
-# Apache: kompresní, cache a bezpečnostní hlavičky (kopíruje se do kořene dist/)
+# Apache: kompresní, cache a bezpečnostní hlavičky (kopíruje se do kořene public/)
 ErrorDocument 404 /404.html
 Options -Indexes
 DirectoryIndex index.html
