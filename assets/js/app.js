@@ -173,12 +173,14 @@ buildDots(); sync();
 rail.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
 new ResizeObserver(() => { buildDots(); sync(); }).observe(rail);
 const auto = parseInt(rail.dataset.autoplay || 0, 10);
-if (auto && !reduce) {
-let timer, visible = false, paused = false;
-const tick = () => { clearTimeout(timer); timer = setTimeout(() => { if (visible && !paused && !d.hidden) go(1); tick(); }, auto); };
+if (auto && !reduce && !isTouch) {
+let timer, visible = false, paused = false, stopped = false;
+const tick = () => { clearTimeout(timer); timer = setTimeout(() => { if (stopped) return; if (visible && !paused && !d.hidden) go(1); tick(); }, auto); };
 new IntersectionObserver(([en]) => { visible = en.isIntersecting; }).observe(rail);
-['pointerenter', 'focusin', 'touchstart'].forEach((ev) => rail.addEventListener(ev, () => { paused = true; }, { passive: true }));
+['pointerenter', 'focusin'].forEach((ev) => rail.addEventListener(ev, () => { paused = true; }, { passive: true }));
 ['pointerleave', 'focusout'].forEach((ev) => rail.addEventListener(ev, () => { paused = false; }));
+['pointerdown', 'wheel', 'keydown'].forEach((ev) => rail.addEventListener(ev, () => { stopped = true; clearTimeout(timer); }, { passive: true }));
+nav?.addEventListener('click', () => { stopped = true; clearTimeout(timer); });
 tick();
 }
 if (!isTouch) {
