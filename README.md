@@ -46,7 +46,7 @@ Nahrává se **celý obsah `dist/`** do kořene domény.
 
 | Hosting | Co dělat |
 |---|---|
-| Vercel | Hotovo v `vercel.json` (build `tools/build.py`, výstup `dist`, hlavičky). V projektu nechte Framework Preset „Other“ – autodetekce Pythonu hlásí chybu o entrypointu. |
+| Vercel | Bez buildu: `vercel.json` jen servíruje hotovou složku `dist/`, která je součástí gitu (Python na Vercelu se nespouští). Před každým pushem spusťte `make build`. Framework Preset nechte „Other“. |
 | Netlify / Cloudflare Pages | Publish directory `dist`; `_headers` (cache + bezpečnostní hlavičky) se použije automaticky. |
 | Apache / klasický webhosting | Nahrát `dist/` včetně skrytého `.htaccess` (404, cache, gzip, předkomprimované `.br`/`.gz`). |
 | Nginx | Zapnout `gzip_static on;` (příp. `brotli_static on;`), `error_page 404 /404.html;`, dlouhé cachování `assets/` (soubory mají verzi v URL `?v=…`). |

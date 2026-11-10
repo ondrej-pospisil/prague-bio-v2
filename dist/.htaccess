@@ -1,0 +1,60 @@
+# Apache: kompresní, cache a bezpečnostní hlavičky (kopíruje se do kořene dist/)
+ErrorDocument 404 /404.html
+Options -Indexes
+DirectoryIndex index.html
+
+# Předkomprimované soubory (.br / .gz vzniká při buildu)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP:Accept-Encoding} br
+  RewriteCond %{REQUEST_FILENAME}.br -f
+  RewriteRule ^(.*\.(html|css|js|svg|json|xml|txt|webmanifest))$ $1.br [L]
+  RewriteCond %{HTTP:Accept-Encoding} gzip
+  RewriteCond %{REQUEST_FILENAME}.gz -f
+  RewriteRule ^(.*\.(html|css|js|svg|json|xml|txt|webmanifest))$ $1.gz [L]
+  <FilesMatch "\.html\.(br|gz)$">
+    ForceType text/html
+  </FilesMatch>
+  <FilesMatch "\.css\.(br|gz)$">
+    ForceType text/css
+  </FilesMatch>
+  <FilesMatch "\.js\.(br|gz)$">
+    ForceType application/javascript
+  </FilesMatch>
+  <FilesMatch "\.svg\.(br|gz)$">
+    ForceType image/svg+xml
+  </FilesMatch>
+  <FilesMatch "\.(br)$">
+    Header set Content-Encoding br
+    Header append Vary Accept-Encoding
+  </FilesMatch>
+  <FilesMatch "\.(gz)$">
+    Header set Content-Encoding gzip
+    Header append Vary Accept-Encoding
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/json application/xml text/plain
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  <FilesMatch "\.(css|js|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(webp|png|jpg|jpeg|svg|ico)$">
+    Header set Cache-Control "public, max-age=2592000, stale-while-revalidate=86400"
+  </FilesMatch>
+  <FilesMatch "\.(html|xml|txt|webmanifest)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType application/manifest+json .webmanifest
+</IfModule>

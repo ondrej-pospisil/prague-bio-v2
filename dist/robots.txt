@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+Disallow: /shapes.html
+Disallow: /styleguide.html
+Disallow: /404.html
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+Sitemap: https://prague.bio/sitemap.xml
