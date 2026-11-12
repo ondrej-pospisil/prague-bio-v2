@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://prague.bio/about-us.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority></url>
-  <url><loc>https://prague.bio/academy.html</loc><lastmod>2026-11-10</lastmod><priority>0.8</priority></url>
-  <url><loc>https://prague.bio/biotech-in-cz.html</loc><lastmod>2026-11-10</lastmod><priority>0.8</priority></url>
-  <url><loc>https://prague.bio/conference-2023.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority></url>
-  <url><loc>https://prague.bio/conference-2024.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority></url>
-  <url><loc>https://prague.bio/conference-2025.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority></url>
-  <url><loc>https://prague.bio/conference-2026-gallery.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority></url>
-  <url><loc>https://prague.bio/conference.html</loc><lastmod>2026-11-10</lastmod><priority>0.9</priority></url>
-  <url><loc>https://prague.bio/contact.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority></url>
-  <url><loc>https://prague.bio/</loc><lastmod>2026-11-10</lastmod><priority>1.0</priority></url>
-  <url><loc>https://prague.bio/members.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority></url>
-  <url><loc>https://prague.bio/membership.html</loc><lastmod>2026-11-10</lastmod><priority>0.8</priority></url>
-  <url><loc>https://prague.bio/news-events.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority></url>
+  <url><loc>https://prague.bio/about-us.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
+  <url><loc>https://prague.bio/academy.html</loc><lastmod>2026-11-12</lastmod><priority>0.8</priority></url>
+  <url><loc>https://prague.bio/biotech-in-cz.html</loc><lastmod>2026-11-12</lastmod><priority>0.8</priority></url>
+  <url><loc>https://prague.bio/conference-2023.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
+  <url><loc>https://prague.bio/conference-2024.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
+  <url><loc>https://prague.bio/conference-2025.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
+  <url><loc>https://prague.bio/conference-2026-gallery.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
+  <url><loc>https://prague.bio/conference.html</loc><lastmod>2026-11-12</lastmod><priority>0.9</priority></url>
+  <url><loc>https://prague.bio/contact.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
+  <url><loc>https://prague.bio/</loc><lastmod>2026-11-12</lastmod><priority>1.0</priority></url>
+  <url><loc>https://prague.bio/members.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
+  <url><loc>https://prague.bio/membership.html</loc><lastmod>2026-11-12</lastmod><priority>0.8</priority></url>
+  <url><loc>https://prague.bio/news-events.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
   <url><loc>https://prague.bio/news/bioequity-europe-2026-to-take-place-in-prague-first-edition-in-central-and-eastern-europe-2.html</loc><lastmod>2025-05-14</lastmod><priority>0.6</priority></url>
   <url><loc>https://prague.bio/news/biotech-investors-gather-in-prague-for-the-prestigious-bioequity-europe-conference.html</loc><lastmod>2026-05-03</lastmod><priority>0.6</priority></url>
   <url><loc>https://prague.bio/news/biotechnology-in-central-europe-is-growing-and-attracting-investors.html</loc><lastmod>2026-05-05</lastmod><priority>0.6</priority></url>
@@ -35,5 +35,5 @@
   <url><loc>https://prague.bio/news/sepsis-costs-lives-and-billions-a-czech-company-is-heading-to-market-with-a-solution.html</loc><lastmod>2026-01-22</lastmod><priority>0.6</priority></url>
   <url><loc>https://prague.bio/news/startup-riana-therapeutics-wins-at-prague-bio-conference-with-innovative-acute-leukemia-therapy.html</loc><lastmod>2025-10-01</lastmod><priority>0.6</priority></url>
   <url><loc>https://prague.bio/news/the-first-edition-of-the-ip-clinic-was-conducted-in-collaboration-with-dentons.html</loc><lastmod>2024-05-31</lastmod><priority>0.6</priority></url>
-  <url><loc>https://prague.bio/register-your-project.html</loc><lastmod>2026-11-10</lastmod><priority>0.7</priority></url>
+  <url><loc>https://prague.bio/register-your-project.html</loc><lastmod>2026-11-12</lastmod><priority>0.7</priority></url>
 </urlset>
